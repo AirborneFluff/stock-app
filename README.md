@@ -9,6 +9,7 @@ This app will allow the user to:
 - Store supplier's information
 - Record outbound orders against suppliers
 - Export data for backups
+- Provide customization settings (Accent colour, text sizes...)
 
 ## Tech Stack
 I intend to use **Angular 16** for the entire project. This means no backend to store/distribute the user's data enabling this app to be hosted on a static webpage for minimal running costs.
