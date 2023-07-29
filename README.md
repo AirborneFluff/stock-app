@@ -24,9 +24,9 @@ Required knowledge:
 ## Dev Progression
 ### First Task
 1. Create a rough design, colour pallet and general UX flow using **Figma**
-2. Design database layout (NoSQL)
-3. Begin Angular project
+3. Design database layout (NoSQL)
+4. Begin Angular project
    - Implement required modules (**Ng-Bootstrap**, **localForage**)
    - Create database services to interface with **locaForage** and setup db environment
    - Build a basic (no style) test page to check database is working correctly
-4. Deploy Basic app to **Github Pages**
+5. Deploy Basic app to **Github Pages**
