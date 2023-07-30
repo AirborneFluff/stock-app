@@ -71,8 +71,8 @@ class DataRepository<T> {
     return new Promise<KeyValue<string, T>[]>((resolve, reject) => {
       let items: KeyValue<string, T>[] = [];
 
-      this.forage.iterate((data: T, key: string, iterationNumber: number) => {
-        if (iterationNumber > maximumResults) return null;
+      this.forage.iterate((data: T, key: string) => {
+        if (items.length > maximumResults) return null;
         if (predicate(data)) {
           items.push({
             key: key,
@@ -87,6 +87,7 @@ class DataRepository<T> {
       })
     });
   }
+
   private getItem<T>(key: string): Promise<T | null> {
     this.setStore();
 

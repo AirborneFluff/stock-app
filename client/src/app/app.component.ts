@@ -12,7 +12,9 @@ export class AppComponent implements OnInit {
 
   constructor(private db: DbService) {}
   ngOnInit(): void {
-    //this.seedData();
+    this.db.parts.firstOrDefault(() => true).then(result => {
+      if (result == undefined) this.seedData();
+    });
   }
 
   seedData() {

@@ -1,0 +1,94 @@
+:host {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding-bottom: 6px;
+  background-color: var(--bg-accent-color);
+  border-radius: 32px 32px 0 0;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--element-bg-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.nav-btn {
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 0.25em;
+  padding: 0.5em;
+  border: none;
+}
+.nav-btn svg {
+  stroke: var(--unselected-grey-color);
+  width: 24px;
+  height: 24px;
+}
+.nav-btn-text {
+  color: var(--unselected-grey-color);
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+.nav-btn-selected .nav-btn-text {
+  color: var(--accent-color) !important;
+  font-weight: 500;
+}
+.nav-btn-selected svg {
+  stroke: var(--accent-color) !important;
+  width: 28px;
+  height: 28px;
+}
+.nav-btn-selected:after {
+  display: block;
+  content: '';
+
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--accent-color);
+}
+
+@media (min-width: 992px) {
+  :host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: unset;
+    height: 100vh;
+  }
+
+  .nav-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-btn {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    gap: 1.5rem;
+    padding: 0.5rem 2rem;
+  }
+  .nav-btn:last-child {
+    margin-top: auto;
+  }
+  .nav-btn svg {
+    width: 36px;
+    height: 36px;
+  }
+  .nav-btn-text {
+    font-weight: 400;
+    font-size: 1.25rem;
+  }
+  .nav-btn-selected:after {
+    display: none;
+  }
+}

@@ -2,6 +2,7 @@
   --bg-accent-color: #E7F5FF;
   --element-bg-color: #FFFFFF;
   --accent-color: #1864AB;
+  --unselected-grey-color: #868E96;
 
   --bs-breakpoint-md: 768px;
   --bs-breakpoint-sm: 576px;
@@ -9,6 +10,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
   font-family: 'Inter', sans-serif;
@@ -27,15 +29,13 @@ body {
   font-weight: 600;
   margin-right: auto;
 }
-.page-container {
-  margin: 6px;
-}
 
 /* -------------------------------- Common Elements -------------------------------- */
 .btn-circle,
 .search-bar,
 .entry-list-item {
   background-color: var(--element-bg-color);
+  box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* -------------------------------- */
@@ -58,6 +58,9 @@ body {
   align-items: center;
   padding: 0.5rem 1rem;
   border-radius: 100px;
+}
+.search-bar svg {
+  stroke: var(--unselected-grey-color);
 }
 .search-bar input {
   border: none;
@@ -83,7 +86,7 @@ body {
   align-items: center;
   justify-content: space-between;
   border-radius: 12px;
-  margin: 0.25rem;
+  margin: 0.125rem;
   flex-basis: 300px;
   flex-grow: 1;
 }

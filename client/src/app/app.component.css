@@ -1,0 +1,11 @@
+.page-container {
+  margin: 6px;
+  padding-bottom: 64px;
+}
+
+@media (min-width: 992px) {
+  .page-container {
+    padding: 0;
+    padding-left: 200px;
+  }
+}

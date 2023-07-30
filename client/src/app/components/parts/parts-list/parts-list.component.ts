@@ -19,4 +19,21 @@ export class PartsListComponent implements OnInit {
     })
   }
 
+  searchParts(term: string) {
+    if (term.length < 3) {
+      this.getParts();
+      return;
+    }
+    this.db.parts.where(x => {
+      return x.description.toLowerCase().includes(term.toLowerCase());
+    }, 10).then(results => {
+      this.parts = results;
+    })
+  }
+
+  getParts(pageNumber: number = 0) {
+    this.db.parts.where(() => true, 10).then(result => {
+      this.parts = result;
+    })
+  }
 }

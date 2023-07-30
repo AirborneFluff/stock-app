@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DEFAULT_CONFIG, NgForageOptions, Driver } from 'ngforage';
 import { PartsListComponent } from './components/parts/parts-list/parts-list.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PartsListComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
