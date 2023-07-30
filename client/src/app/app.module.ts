@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DEFAULT_CONFIG, NgForageOptions, Driver } from 'ngforage';
+import { PartsListComponent } from './components/parts/parts-list/parts-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PartsListComponent,
   ],
   imports: [
     BrowserModule,

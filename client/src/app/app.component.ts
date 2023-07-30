@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from "./_services/data.service";
+import { DbService } from "./_services/db.service";
 import seedPartData from '../assets/seed-data-parts.json'
 
 @Component({
@@ -10,28 +10,16 @@ import seedPartData from '../assets/seed-data-parts.json'
 export class AppComponent implements OnInit {
   title = 'client';
 
-  constructor(private db: DataService) {}
+  constructor(private db: DbService) {}
   ngOnInit(): void {
-    // this.seedData();
-
-    this.db.parts.firstOrDefault(x => {
-      return Number(x.sku) > 1400;
-    }).then(result => console.log(result));
-
-    this.db.parts.where(x => {
-      return x.category == 'Outdoors';
-    }).then(x => {
-      console.log(x);
-    });
-
+    //this.seedData();
   }
 
   seedData() {
     this.db.parts.clearData().then(() => {
       seedPartData.forEach(part => {
-        this.db.parts.setItem(part);
+        this.db.parts.add(part);
       })
     });
-
   }
 }

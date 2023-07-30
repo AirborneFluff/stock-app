@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-accent-color: #E7F5FF;
+  --element-bg-color: #FFFFFF;
+  --accent-color: #1864AB;
+
+  --bs-breakpoint-md: 768px;
+  --bs-breakpoint-sm: 576px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-accent-color);
+}
+
+/* -------------------------------- Page Layout -------------------------------- */
+.page-header-container {
+  display: flex;
+  margin: 0.5rem 1rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+.page-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-right: auto;
+}
+.page-container {
+  margin: 6px;
+}
+
+/* -------------------------------- Common Elements -------------------------------- */
+.btn-circle,
+.search-bar,
+.entry-list-item {
+  background-color: var(--element-bg-color);
+}
+
+/* -------------------------------- */
+.btn-circle:hover {
+  cursor: pointer;
+}
+.btn-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border: none;
+  border-radius: 18px;
+}
+/* -------------------------------- */
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+}
+.search-bar input {
+  border: none;
+  margin-left: 0.5rem;
+  font-size: 0.75em;
+  height: 100%;
+}
+.search-bar input:focus {
+  outline: none;
+}
+/* -------------------------------- */
+.entry-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.entry-list-item:hover {
+  cursor: pointer;
+}
+.entry-list-item {
+  display: flex;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 12px;
+  margin: 0.25rem;
+  flex-basis: 300px;
+  flex-grow: 1;
+}
+.entry-list-item-subtitle {
+  font-size: 0.75em;
+  font-weight: 300;
+}
+.entry-list-item-title {
+  font-size: 1em;
+  font-weight: 500;
+}
+.entry-list-title-container {
+}
