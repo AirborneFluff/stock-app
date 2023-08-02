@@ -9,19 +9,36 @@ import seedPartData from '../assets/seed-data-parts.json'
 })
 export class AppComponent implements OnInit {
   title = 'client';
+  dataLoaded = false;
 
   constructor(private db: DbService) {}
   ngOnInit(): void {
-    this.db.parts.firstOrDefault(() => true).then(result => {
-      if (result == undefined) this.seedData();
-    });
+    this.seedData().then(() => {
+      this.dataLoaded = true;
+    })
+    // this.db.parts.firstOrDefault(() => true).then(result => {
+    //   if (result) {
+    //     this.dataLoaded = true;
+    //     return;
+    //   }
+    //   this.seedData().then(() => {
+    //     this.dataLoaded = true;
+    //   })
+    // });
   }
 
   seedData() {
-    this.db.parts.clearData().then(() => {
-      seedPartData.forEach(part => {
-        this.db.parts.add(part);
-      })
-    });
+    return new Promise((resolve) => {
+      this.db.parts.clearData().then(() => {
+        let tasks: any = [];
+        seedPartData.forEach(part => {
+          tasks.push(this.db.parts.add(part));
+        })
+
+        Promise.all(tasks).then(() => {
+          resolve(true);
+        });
+      });
+    })
   }
 }

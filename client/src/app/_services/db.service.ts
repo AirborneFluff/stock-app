@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 // @ts-ignore
 import {Part} from "../_data/part";
 import {Supplier} from "../_data/supplier";
-import {KeyValue} from "@angular/common";
+import {BaseEntity} from "../_data/base-entity";
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class DbService {
   }
 }
 
-class DataRepository<T> {
+class DataRepository<T extends BaseEntity> {
   constructor(private readonly forage: NgForage, private readonly storeName: string) {}
   private setStore(){
     this.forage.storeName = this.storeName;
@@ -55,12 +55,9 @@ class DataRepository<T> {
   public firstOrDefault(predicate: (value: T) => boolean) {
     this.setStore();
 
-    return this.forage.iterate((data: T, key: string) => {
+    return this.forage.iterate((data: T) => {
       if (predicate(data)) {
-        return {
-          key: key,
-          data: data
-        };
+        return data;
       }
       return undefined;
     });
@@ -68,16 +65,13 @@ class DataRepository<T> {
   public where(predicate: (value: T) => boolean, maximumResults: number = -1) {
     this.setStore();
 
-    return new Promise<KeyValue<string, T>[]>((resolve, reject) => {
-      let items: KeyValue<string, T>[] = [];
+    return new Promise<T[]>((resolve, reject) => {
+      let items: T[] = [];
 
-      this.forage.iterate((data: T, key: string) => {
+      this.forage.iterate((data: T) => {
         if (items.length > maximumResults) return null;
         if (predicate(data)) {
-          items.push({
-            key: key,
-            value: data
-          });
+          items.push(data);
         }
         return undefined;
       }).then(() => {
@@ -94,14 +88,18 @@ class DataRepository<T> {
     return this.forage.getItem<T>(key);
   }
 
-  private setItem<T>(data: T): Promise<T | null>;
-  private setItem<T>(data: T, key: string): Promise<T | null>;
-  private setItem<T>(data: T, key?: string): Promise<T | null> {
+  private setItem<T>(data: BaseEntity): Promise<BaseEntity | null>;
+  private setItem<T>(data: BaseEntity, key: string): Promise<BaseEntity | null>;
+  private setItem<T extends BaseEntity>(data: BaseEntity, key?: string): Promise<BaseEntity | null> {
     this.setStore();
 
     if (key) {
-      return this.forage.setItem<T>(key, data);
+      data.id = key;
+      return this.forage.setItem<BaseEntity>(data.id, data);
     }
-    return this.forage.setItem<T>(uuid(), data);
+
+    if (data.id) return this.forage.setItem<BaseEntity>(data.id, data);
+
+    return this.forage.setItem<BaseEntity>(uuid(), data);
   }
 }

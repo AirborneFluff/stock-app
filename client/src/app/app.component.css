@@ -3,9 +3,9 @@
   padding-bottom: 64px;
 }
 
-@media (min-width: 992px) {
-  .page-container {
-    padding: 0;
-    padding-left: 200px;
+@media (min-width: 992px) { /* --bs-breakpoint-lg */
+  .app-container {
+    display: flex;
+    flex-direction: row-reverse;
   }
 }
