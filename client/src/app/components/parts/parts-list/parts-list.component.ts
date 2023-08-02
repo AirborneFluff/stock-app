@@ -25,13 +25,13 @@ export class PartsListComponent implements OnInit {
     }
     this.db.parts.where(x => {
       return x.description.toLowerCase().includes(term.toLowerCase());
-    }, 10).then(results => {
+    }, 50).then(results => {
       this.parts = results;
     })
   }
 
   getParts(pageNumber: number = 0) {
-    this.db.parts.where(() => true, 10).then(result => {
+    this.db.parts.where(() => true, 50).then(result => {
       this.parts = result;
     })
   }

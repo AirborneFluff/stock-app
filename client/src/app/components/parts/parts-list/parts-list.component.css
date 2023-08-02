@@ -1,3 +1,25 @@
+.btn-circle,
+.search-bar,
+.entry-list-item {
+  background-color: var(--element-bg-color);
+  box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------------------- */
+.btn-circle:hover {
+  cursor: pointer;
+}
+.btn-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border: none;
+  border-radius: 18px;
+}
+
 .search-bar {
   display: flex;
   align-items: center;
@@ -22,8 +44,22 @@
   flex-wrap: wrap;
   margin-top: 0.5rem;
 }
+.btn-circle:hover {
+  cursor: pointer;
+  -webkit-transition: 0.05s linear transform;
+  -moz-transition: 0.05s linear transform;
+  -o-transition: 0.05s linear transform;
+  transition: 0.05s linear transform;
+  transform: scale(1.1);
+}
+.entry-list-item:focus,
 .entry-list-item:hover {
   cursor: pointer;
+  -webkit-transition: 0.05s linear transform;
+  -moz-transition: 0.05s linear transform;
+  -o-transition: 0.05s linear transform;
+  transition: 0.05s linear transform;
+  transform: scale(1.02);
 }
 .entry-list-item {
   display: flex;

@@ -59,6 +59,14 @@
   height: 1px;
   background-color: var(--accent-color);
 }
+.nav-btn:hover {
+  cursor: pointer;
+  -webkit-transition: 0.05s linear transform;
+  -moz-transition: 0.05s linear transform;
+  -o-transition: 0.05s linear transform;
+  transition: 0.05s linear transform;
+  transform: scale(1.05);
+}
 
 @media (min-width: 992px) { /* --bs-breakpoint-lg */
   :host {
