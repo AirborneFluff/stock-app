@@ -7,12 +7,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DEFAULT_CONFIG, NgForageOptions, Driver } from 'ngforage';
 import { PartsListComponent } from './components/parts/parts-list/parts-list.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { PartDetailComponent } from './components/parts/part-detail/part-detail.component';
+import { PartStockComponent } from './components/parts/part-stock/part-stock.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PartsListComponent,
     NavigationComponent,
+    PartDetailComponent,
+    PartStockComponent,
   ],
   imports: [
     BrowserModule,

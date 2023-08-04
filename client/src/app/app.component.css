@@ -1,6 +1,13 @@
 .page-container {
-  margin: 6px;
   padding-bottom: 64px;
+  overflow-x: hidden;
+  flex-grow: 0;
+}
+
+.nav-spacer {
+  display: none;
+  flex-shrink: 0;
+  width: calc(36px + 4rem);
 }
 
 @media (min-width: 992px) { /* --bs-breakpoint-lg */
@@ -8,7 +15,10 @@
     display: flex;
     flex-direction: row-reverse;
   }
+  .nav-spacer {
+    display: block;
+  }
   .page-container {
-    padding-left: calc(36px + 4rem);
+    padding-bottom: 0;
   }
 }

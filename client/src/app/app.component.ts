@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DbService } from "./_services/db.service";
 import seedPartData from '../assets/seed-data-parts.json'
+import {Part} from "./_data/part";
+import {StockLevel} from "./_data/stock-level";
 
 @Component({
   selector: 'app-root',
@@ -32,7 +34,22 @@ export class AppComponent implements OnInit {
       this.db.parts.clearData().then(() => {
         let tasks: any = [];
         seedPartData.forEach(part => {
-          tasks.push(this.db.parts.add(part));
+          let stockLevels: StockLevel[] = [];
+          part.stockLevels.forEach(val => {
+            stockLevels.push({
+              quantity: val.quantity,
+              date: new Date(val.date)})
+            })
+          const newPart: Part = {
+            category: part.category,
+            description: part.description,
+            id: part.id,
+            sku: part.sku,
+            stockLevels: stockLevels,
+            supplySources: []
+
+          }
+          tasks.push(this.db.parts.add(newPart));
         })
 
         Promise.all(tasks).then(() => {

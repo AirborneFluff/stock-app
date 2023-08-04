@@ -19,17 +19,23 @@ body {
   background-color: var(--bg-accent-color);
 }
 
-/* -------------------------------- Page Layout -------------------------------- */
-.page-header-container {
-  display: flex;
-  margin: 0.5rem 1rem;
-  justify-content: flex-end;
-  align-items: center;
-}
-.page-title {
-  font-size: 1.75em;
-  font-weight: 600;
-  margin-right: auto;
-}
 
-/* -------------------------------- Common Elements -------------------------------- */
+.btn-circle,
+.search-bar,
+.entry-list-item {
+  background-color: var(--element-bg-color);
+  box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+.btn-circle:hover {
+  cursor: pointer;
+}
+.btn-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border: none;
+  border-radius: 18px;
+}

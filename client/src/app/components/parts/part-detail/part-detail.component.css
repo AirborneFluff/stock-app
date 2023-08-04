@@ -1,0 +1,78 @@
+:host {
+  position: relative;
+  width: 100%;
+}
+
+.top-bar {
+  position: sticky;
+  width: inherit;
+}
+
+.tab-menu,
+.page-header-container {
+  background-color: var(--element-bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-header-container {
+  padding: 1rem 0.5rem 1rem 0.5rem;
+}
+.return-btn,
+.tab-button:hover {
+  cursor: pointer;
+}
+.tab-button {
+  width: calc(100% / 3);
+  background: var(--element-bg-color);
+  border: none;
+  font-weight: 300;
+  padding: 0.75rem 0 0.75rem 0;
+
+  border-bottom: 2px solid var(--border-grey-color);
+}
+.tab-button-text {
+  font-size: 0.75rem;
+}
+.tab-selected {
+  border-bottom: 2px solid var(--unselected-grey-color);
+}
+.page-content {
+  /*--text-svg-clamp: calc(8px + clamp(36px, 1.75rem, 1.75rem));*/
+  /*padding-top: calc(2rem + var(--text-svg-clamp) + 2.25rem + 2px);*/
+  margin: 6px;
+}
+.page-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.page-subtitle {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+.title-container {
+  text-align: center;
+}
+.return-btn {
+  background: none;
+  border: none;
+}
+.return-btn svg {
+  width: 36px;
+  height: 36px;
+}
+
+@media (min-width: 992px) { /* --bs-breakpoint-lg */
+  .tab-menu {
+    justify-content: flex-start;
+  }
+  .tab-button {
+    flex-basis: 8rem;
+    border-top: 1px solid var(--border-grey-color);
+    border-right: 1px solid var(--border-grey-color);
+    border-left: 1px solid var(--border-grey-color);
+    border-radius: 0 8px 0 0;
+    padding: 0.5rem 0 0.5rem 0;
+  }
+}
