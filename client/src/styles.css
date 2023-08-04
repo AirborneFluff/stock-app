@@ -15,8 +15,11 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif !important;
   background-color: var(--bg-accent-color);
+}
+button {
+  font-family: 'Inter', sans-serif;
 }
 
 

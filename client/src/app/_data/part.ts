@@ -7,5 +7,6 @@ export interface Part extends BaseEntity {
   description: string,
   category: string,
   supplySources: SupplySource[],
+  stockLocation: string,
   stockLevels: StockLevel[]
 }

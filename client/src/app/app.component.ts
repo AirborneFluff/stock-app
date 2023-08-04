@@ -46,8 +46,8 @@ export class AppComponent implements OnInit {
             id: part.id,
             sku: part.sku,
             stockLevels: stockLevels,
-            supplySources: []
-
+            supplySources: [],
+            stockLocation: part.stockLocation
           }
           tasks.push(this.db.parts.add(newPart));
         })

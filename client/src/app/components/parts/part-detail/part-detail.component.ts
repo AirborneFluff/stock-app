@@ -21,7 +21,7 @@ export class PartDetailComponent {
         this.partExists = false;
         return;
       }
-      console.log(JSON.stringify(result))
+      console.log(result)
       this.part = result;
     }).catch(err => {
       this.partExists = false;
