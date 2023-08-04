@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DbService} from "../../../_services/db.service";
 import {Part} from "../../../_data/part";
-
 @Component({
   selector: 'app-parts-list',
   templateUrl: './parts-list.component.html',
@@ -10,12 +9,15 @@ import {Part} from "../../../_data/part";
 export class PartsListComponent implements OnInit {
   parts: Part[] = [];
 
-  constructor(private db: DbService) {}
+  constructor(public db: DbService) {}
 
   ngOnInit(): void {
     this.db.parts.where(() => true, 50).then(result => {
       this.parts = result;
     })
+  }
+
+  getRelatedEntity(part: Part) {
   }
 
   searchParts(term: string) {
@@ -35,4 +37,6 @@ export class PartsListComponent implements OnInit {
       this.parts = result;
     })
   }
+
+    protected readonly console = console;
 }

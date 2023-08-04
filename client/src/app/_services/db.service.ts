@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid';
 import {Part} from "../_data/part";
 import {Supplier} from "../_data/supplier";
 import {BaseEntity} from "../_data/base-entity";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +21,30 @@ export class DbService {
     this.parts = new DataRepository(forage, 'parts');
     this.suppliers = new DataRepository(forage, 'suppliers');
   }
+
+  public find(id: string) {
+    let tasks: any[] = [];
+    this.objForEach(this, (k, v) => {
+      if (v instanceof DataRepository) {
+        tasks.push(v.find(id));
+      }
+    })
+    return Promise.any(tasks)
+  }
+  objForEach<T>(obj: T, f: (k: keyof T, v: T[keyof T]) => void): void {
+    for (let k in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, k)) {
+        f(k, obj[k]);
+      }
+    }
+  }
 }
 
-class DataRepository<T extends BaseEntity> {
-  constructor(private readonly forage: NgForage, private readonly storeName: string) {}
+export class DataRepository<T extends BaseEntity> {
+  public readonly storeName!: string;
+  constructor(private readonly forage: NgForage, storeName: string) {
+    this.storeName = storeName;
+  }
   private setStore(){
     this.forage.storeName = this.storeName;
   }
@@ -49,7 +70,7 @@ class DataRepository<T extends BaseEntity> {
 
     return this.setItem(data, key);
   }
-  public find(key: string) {
+  public find(key: string): Promise<T | null> {
     return this.getItem(key);
   }
   public firstOrDefault(predicate: (value: T) => boolean) {

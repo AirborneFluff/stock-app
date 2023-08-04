@@ -2,6 +2,7 @@
   position: fixed;
   width: 100%;
   bottom: 0;
+  left: 0;
   /*padding-bottom: 6px;*/
   background-color: var(--bg-accent-color);
   border-radius: 16px 16px 0 0;
@@ -70,8 +71,7 @@
 
 @media (min-width: 992px) { /* --bs-breakpoint-lg */
   :host {
-    position: unset;
-    width: unset;
+    width: calc(36px + 4rem);
     height: 100vh;
     padding-bottom: 0;
   }
@@ -80,8 +80,9 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding-top: 1.5rem;
+    align-items: center;
+    padding: 1.5rem 0 1.5rem 0;
+    gap: 1rem;
     margin-right: 6px;
     border-radius: 0 16px 16px 0;
 
@@ -89,23 +90,35 @@
   }
   .nav-btn {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
     flex-grow: 0;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
   }
   .nav-btn:last-child {
     margin-top: auto;
   }
   .nav-btn svg {
-    width: 42px;
-    height: 42px;
-    margin-right: 2rem;
+    width: 36px;
+    height: 36px;
   }
   .nav-btn-text {
-    margin-right: auto;
     font-weight: 400;
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
+
+  /*.nav-container:hover {*/
+  /*  align-items: flex-start;*/
+  /*}*/
+  /*.nav-container:hover .nav-btn {*/
+  /*  flex-direction: row;*/
+  /*}*/
+  /*.nav-container:hover .nav-btn svg {*/
+  /*  margin-right: 2rem;*/
+  /*}*/
+  /*.nav-container:hover .nav-btn-text {*/
+  /*  margin-right: auto;*/
+  /*}*/
   .nav-btn-selected:after {
     display: none;
   }
