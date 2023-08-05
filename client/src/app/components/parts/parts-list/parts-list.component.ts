@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {DbService} from "../../../_services/db.service";
 import {Part} from "../../../_data/part";
+import {MatBottomSheet} from "@angular/material/bottom-sheet";
+import {PartAddComponent} from "../part-add/part-add.component";
 @Component({
   selector: 'app-parts-list',
   templateUrl: './parts-list.component.html',
@@ -9,7 +11,7 @@ import {Part} from "../../../_data/part";
 export class PartsListComponent implements OnInit {
   parts: Part[] = [];
 
-  constructor(public db: DbService) {}
+  constructor(public db: DbService, private bottomSheet: MatBottomSheet) {}
 
   ngOnInit(): void {
     this.db.parts.where(() => true, 50).then(result => {
@@ -17,7 +19,8 @@ export class PartsListComponent implements OnInit {
     })
   }
 
-  getRelatedEntity(part: Part) {
+  openAddPartSheet() {
+    this.bottomSheet.open(PartAddComponent);
   }
 
   searchParts(term: string) {
@@ -37,6 +40,4 @@ export class PartsListComponent implements OnInit {
       this.parts = result;
     })
   }
-
-    protected readonly console = console;
 }
