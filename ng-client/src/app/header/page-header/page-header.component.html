@@ -1,12 +1,14 @@
 <div class="header-container" [ngClass]="{'borderless' : borderless}">
-  <div class="left-actions">
-    <ng-content select="app-header-return-button"/>
-  </div>
+  <ng-content select="app-header-return-button"/>
+  <ng-content select="app-page-title"/>
   <div class="title-container">
     <ng-content select="app-header-title"/>
     <ng-content select="app-header-subtitle"/>
   </div>
   <div class="right-actions">
     <ng-content select="app-header-action-button"/>
+  </div>
+  <div class="sub-container">
+    <ng-content select="app-header-sub-content"/>
   </div>
 </div>

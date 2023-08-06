@@ -6,6 +6,8 @@ import { HeaderTitleComponent } from './header-title/header-title.component';
 import { HeaderSubtitleComponent } from './header-subtitle/header-subtitle.component';
 import { HeaderActionButtonComponent } from './header-action-button/header-action-button.component';
 import {MatIconModule} from "@angular/material/icon";
+import { PageTitleComponent } from './page-title/page-title.component';
+import { HeaderSubContentComponent } from './header-sub-content/header-sub-content.component';
 
 
 
@@ -16,6 +18,8 @@ import {MatIconModule} from "@angular/material/icon";
     HeaderTitleComponent,
     HeaderSubtitleComponent,
     HeaderActionButtonComponent,
+    PageTitleComponent,
+    HeaderSubContentComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +31,8 @@ import {MatIconModule} from "@angular/material/icon";
     HeaderTitleComponent,
     HeaderSubtitleComponent,
     HeaderActionButtonComponent,
+    PageTitleComponent,
+    HeaderSubContentComponent
   ]
 })
 export class HeaderModule { }

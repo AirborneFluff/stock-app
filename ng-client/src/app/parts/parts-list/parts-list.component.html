@@ -1,19 +1,19 @@
 <app-page-header>
-  <app-header-return-button>chevron_left</app-header-return-button>
-  <app-header-action-button>add</app-header-action-button>
-  <app-header-action-button>add</app-header-action-button>
-  <app-header-action-button>add</app-header-action-button>
-  <app-header-action-button>add</app-header-action-button>
-  <app-header-title>Parts</app-header-title>
-  <app-header-subtitle>Parts</app-header-subtitle>
-</app-page-header>
+  <app-page-title>Parts</app-page-title>
+  <app-header-action-button>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  </app-header-action-button>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid, at consequuntur cupiditate deleniti dolore dolorum excepturi facilis fugiat fugit id incidunt, ipsa ipsum libero magni maiores nam natus neque nihil omnis optio pariatur quam quasi quia quibusdam quod saepe sequi similique sit sunt suscipit ullam ut vel voluptas voluptatem voluptates. Ad cumque dicta ex impedit incidunt nemo obcaecati quod similique suscipit ut! Animi atque aut culpa deserunt ea eligendi enim et explicabo impedit, inventore ipsam laudantium molestiae nam necessitatibus nemo nostrum officia praesentium qui quis quo quos recusandae repellat repudiandae saepe sed sint suscipit tempora temporibus veniam voluptas.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid, at consequuntur cupiditate deleniti dolore dolorum excepturi facilis fugiat fugit id incidunt, ipsa ipsum libero magni maiores nam natus neque nihil omnis optio pariatur quam quasi quia quibusdam quod saepe sequi similique sit sunt suscipit ullam ut vel voluptas voluptatem voluptates. Ad cumque dicta ex impedit incidunt nemo obcaecati quod similique suscipit ut! Animi atque aut culpa deserunt ea eligendi enim et explicabo impedit, inventore ipsam laudantium molestiae nam necessitatibus nemo nostrum officia praesentium qui quis quo quos recusandae repellat repudiandae saepe sed sint suscipit tempora temporibus veniam voluptas.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid, at consequuntur cupiditate deleniti dolore dolorum excepturi facilis fugiat fugit id incidunt, ipsa ipsum libero magni maiores nam natus neque nihil omnis optio pariatur quam quasi quia quibusdam quod saepe sequi similique sit sunt suscipit ullam ut vel voluptas voluptatem voluptates. Ad cumque dicta ex impedit incidunt nemo obcaecati quod similique suscipit ut! Animi atque aut culpa deserunt ea eligendi enim et explicabo impedit, inventore ipsam laudantium molestiae nam necessitatibus nemo nostrum officia praesentium qui quis quo quos recusandae repellat repudiandae saepe sed sint suscipit tempora temporibus veniam voluptas.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid, at consequuntur cupiditate deleniti dolore dolorum excepturi facilis fugiat fugit id incidunt, ipsa ipsum libero magni maiores nam natus neque nihil omnis optio pariatur quam quasi quia quibusdam quod saepe sequi similique sit sunt suscipit ullam ut vel voluptas voluptatem voluptates. Ad cumque dicta ex impedit incidunt nemo obcaecati quod similique suscipit ut! Animi atque aut culpa deserunt ea eligendi enim et explicabo impedit, inventore ipsam laudantium molestiae nam necessitatibus nemo nostrum officia praesentium qui quis quo quos recusandae repellat repudiandae saepe sed sint suscipit tempora temporibus veniam voluptas.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid, at consequuntur cupiditate deleniti dolore dolorum excepturi facilis fugiat fugit id incidunt, ipsa ipsum libero magni maiores nam natus neque nihil omnis optio pariatur quam quasi quia quibusdam quod saepe sequi similique sit sunt suscipit ullam ut vel voluptas voluptatem voluptates. Ad cumque dicta ex impedit incidunt nemo obcaecati quod similique suscipit ut! Animi atque aut culpa deserunt ea eligendi enim et explicabo impedit, inventore ipsam laudantium molestiae nam necessitatibus nemo nostrum officia praesentium qui quis quo quos recusandae repellat repudiandae saepe sed sint suscipit tempora temporibus veniam voluptas.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid, at consequuntur cupiditate deleniti dolore dolorum excepturi facilis fugiat fugit id incidunt, ipsa ipsum libero magni maiores nam natus neque nihil omnis optio pariatur quam quasi quia quibusdam quod saepe sequi similique sit sunt suscipit ullam ut vel voluptas voluptatem voluptates. Ad cumque dicta ex impedit incidunt nemo obcaecati quod similique suscipit ut! Animi atque aut culpa deserunt ea eligendi enim et explicabo impedit, inventore ipsam laudantium molestiae nam necessitatibus nemo nostrum officia praesentium qui quis quo quos recusandae repellat repudiandae saepe sed sint suscipit tempora temporibus veniam voluptas.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid, at consequuntur cupiditate deleniti dolore dolorum excepturi facilis fugiat fugit id incidunt, ipsa ipsum libero magni maiores nam natus neque nihil omnis optio pariatur quam quasi quia quibusdam quod saepe sequi similique sit sunt suscipit ullam ut vel voluptas voluptatem voluptates. Ad cumque dicta ex impedit incidunt nemo obcaecati quod similique suscipit ut! Animi atque aut culpa deserunt ea eligendi enim et explicabo impedit, inventore ipsam laudantium molestiae nam necessitatibus nemo nostrum officia praesentium qui quis quo quos recusandae repellat repudiandae saepe sed sint suscipit tempora temporibus veniam voluptas.</p>
+  <app-header-sub-content>
+    <app-search-bar (searchChanged)="searchParts($event)"/>
+  </app-header-sub-content>
+</app-page-header>
+<div class="page-container">
+  <ul class="entry-list">
+    <ng-container *ngFor="let item of parts">
+      <app-parts-list-item [part]="item"/>
+    </ng-container>
+  </ul>
+</div>
 
 <button (click)="openBottomSheet()">Open file</button>

@@ -5,12 +5,18 @@
   --accent-color: #ff4081;
   --warn-color: #f44336;
 
-  --menu-background-color: #fff;
+  --menu-background-color: #ffffff;
+  --page-background-color: #E7F5FF;
+  --item-highlight-color: #d9dcf0;
 
+  --icon-grey-color: #495057;
+  --unselected-grey-color: #868E96;
   --divider-color: #dee2e6;
 }
 
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 

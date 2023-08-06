@@ -4,7 +4,7 @@ import { AppComponent } from "./app.component";
 import { PartsListComponent } from "./parts/parts-list/parts-list.component";
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: PartsListComponent },
   { path: 'parts', component: PartsListComponent  },
   { path: 'orders', component: AppComponent },
   { path: 'reports', component: AppComponent  },

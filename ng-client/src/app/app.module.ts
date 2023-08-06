@@ -7,18 +7,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationModule } from "./navigation/navigation.module";
 import { PartsModule } from "./parts/parts.module";
 import { HeaderModule } from "./header/header.module";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NavigationModule,
     PartsModule,
-    HeaderModule
+    HeaderModule,
+    MatIconModule,
+    NavigationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

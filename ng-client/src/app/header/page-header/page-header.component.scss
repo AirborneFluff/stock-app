@@ -1,12 +1,19 @@
+:host {
+}
+
 .header-container {
   position: sticky;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
   top: 0;
-  padding: 0.5rem 0.25rem;
+  padding: 0.5rem 1rem;
+  grid-row-gap: 0.5rem;
 
-  background-color: var(--menu-background-color);
+  z-index: 0;
+  max-width: 992px;
   border-bottom: 1px solid var(--divider-color);
+  background-color: var(--menu-background-color);
 }
 .borderless {
   border: none;
@@ -15,7 +22,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  justify-self: center;
   line-height: 1;
 }
 .title-container,
@@ -25,4 +31,9 @@
 .right-actions {
   justify-content: flex-end;
   gap: 4px;
+}
+
+.sub-container {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 3;
 }

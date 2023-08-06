@@ -1,0 +1,10 @@
+.page-container {
+  background-color: var(--page-background-color);
+}
+
+.entry-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.125rem;
+  padding: 0.5rem 0.125rem;
+}

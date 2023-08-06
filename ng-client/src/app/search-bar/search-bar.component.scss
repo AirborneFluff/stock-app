@@ -1,0 +1,25 @@
+:host {
+  background-color: var(--menu-background-color);
+  border: 1px solid var(--divider-color);
+  box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+:host {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+}
+:host input {
+  border: none;
+  margin-left: 0.5rem;
+  font-size: 0.75em;
+  height: 100%;
+}
+:host input:focus {
+  outline: none;
+}
+
+svg {
+  stroke: var(--icon-grey-color);
+}

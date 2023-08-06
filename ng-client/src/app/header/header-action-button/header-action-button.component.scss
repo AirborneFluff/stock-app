@@ -15,8 +15,10 @@
   border-radius: 18px;
 
   border: 1px solid var(--divider-color);
+
+  ::ng-deep svg {
+    stroke: var(--icon-grey-color);
+  }
 }
 
-mat-icon {
-  font-size: 24px;
-}
+
