@@ -1,0 +1,22 @@
+:host {
+  background-color: var(--element-bg-color);
+  box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+:host:hover {
+  cursor: pointer;
+}
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  border-radius: 18px;
+
+  border: 1px solid var(--divider-color);
+}
+
+mat-icon {
+  font-size: 24px;
+}

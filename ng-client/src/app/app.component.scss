@@ -1,0 +1,16 @@
+.app-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column-reverse;
+  overflow: hidden;
+}
+.wrapper {
+  height: 100%;
+  overflow-y: auto;
+}
+
+@media (min-width: 992px) { /* --bs-breakpoint-lg */
+  .app-container {
+    flex-direction: row;
+  }
+}
