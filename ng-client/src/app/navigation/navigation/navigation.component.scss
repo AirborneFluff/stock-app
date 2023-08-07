@@ -11,6 +11,15 @@
   background-color: rgba(255, 255, 255, 0.46);//var(--menu-background-color);
 }
 
+.nav-button-selected:after {
+  display: block;
+  content: '';
+
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--primary-color);
+}
+
 .nav-button:hover {
   cursor: pointer;
 }
@@ -19,7 +28,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
   flex-grow: 1;
   padding-block: 0.5rem;
 
@@ -32,6 +40,22 @@
   span {
     font-size: 0.75rem;
     font-weight: 300;
+  }
+}
+
+.nav-button-selected {
+  .nav-button-text {
+    color: var(--primary-color) !important;
+    font-weight: 500;
+  }
+  svg {
+    stroke: var(--primary-color) !important;
+    width: 28px;
+    height: 28px;
+  }
+  span {
+    color: var(--primary-color) !important;
+    font-weight: 500;
   }
 }
 

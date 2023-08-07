@@ -7,5 +7,6 @@ import {Component, Input} from '@angular/core';
 })
 export class PageHeaderComponent {
   @Input() borderless: boolean = false;
+  @Input() backgroundColor: string | undefined;
 
 }

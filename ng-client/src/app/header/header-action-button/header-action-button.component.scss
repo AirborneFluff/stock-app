@@ -15,6 +15,7 @@
   border-radius: 18px;
 
   border: 1px solid var(--divider-color);
+  background-color: var(--menu-background-color);
 
   ::ng-deep svg {
     stroke: var(--icon-grey-color);
