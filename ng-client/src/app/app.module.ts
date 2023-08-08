@@ -8,6 +8,7 @@ import { NavigationModule } from "./navigation/navigation.module";
 import { PartsModule } from "./parts/parts.module";
 import { HeaderModule } from "./header/header.module";
 import {MatIconModule} from "@angular/material/icon";
+import {SettingsModule} from "./settings/settings.module";
 
 @NgModule({
   declarations: [
@@ -18,11 +19,11 @@ import {MatIconModule} from "@angular/material/icon";
     AppRoutingModule,
     BrowserAnimationsModule,
     PartsModule,
+    SettingsModule,
     HeaderModule,
     MatIconModule,
     NavigationModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

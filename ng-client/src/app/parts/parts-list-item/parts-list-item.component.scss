@@ -6,12 +6,17 @@
   display: flex;
   padding: 0.5rem 1rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-grow: 1;
   flex-basis: 300px;
 
   box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 6px;
+}
+.title-container {
+  margin-right: auto;
+  min-width: 0;
+  overflow: clip; /* Hide overflowed text */
 }
 .subtitle {
   font-size: 0.75em;
@@ -22,12 +27,26 @@
   font-size: 1em;
   font-weight: 400;
   line-height: 1;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowed text */
+  text-overflow: ellipsis; /* Display ellipsis for overflowed text */
 }
 p {
   margin: 0;
 }
 svg {
   stroke: var(--icon-grey-color);
+  flex-shrink: 0;
+}
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  height: 100%;
+  flex: 0 0 8.5rem;
+  padding-left: 0.5rem;
 }
 
 @media (min-width: 992px) { /* --bs-breakpoint-lg */

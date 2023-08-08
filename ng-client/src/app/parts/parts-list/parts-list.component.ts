@@ -14,7 +14,10 @@ export class PartsListComponent implements OnInit {
   constructor(private _bottomSheet: MatBottomSheet, private db: DbService) {}
 
   openBottomSheet(): void {
-    this._bottomSheet.open(AddNewPartComponent);
+    this._bottomSheet.open(AddNewPartComponent).afterDismissed().subscribe(x => {
+      if (!x) return;
+      this.parts.push(x);
+    });
   }
 
   ngOnInit(): void {

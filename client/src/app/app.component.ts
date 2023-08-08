@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DbService } from "./_services/db.service";
-import seedPartData from '../assets/seed-data-parts.json'
+import seedPartData from '../../../ng-client/src/assets/seed-data-parts.json'
 import {Part} from "./_data/part";
 import {StockLevel} from "./_data/stock-level";
 

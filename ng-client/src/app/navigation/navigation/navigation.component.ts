@@ -9,13 +9,12 @@ import {filter} from "rxjs";
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
-  currentRoute: 'parts' | 'orders' | 'reports' | 'settings' = 'parts';
 
-  constructor(router: Router) {
-    router.events.pipe(filter(event => event instanceof NavigationStart))
-      .subscribe((val: any) => {
-      this.currentRoute = val.url.substring(1);
-    })
+  constructor(private router: Router) {}
+
+  public get currentRoute() {
+    const splitUrl = this.router.url.split('/');
+    return splitUrl[1];
   }
 
 

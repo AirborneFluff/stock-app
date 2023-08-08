@@ -8,5 +8,5 @@ import {Part} from "../../_data/part";
 })
 export class PartsListItemComponent {
   @Input() part: Part | undefined = undefined;
-
+  protected readonly undefined = undefined;
 }

@@ -1,5 +1,7 @@
-.page-container {
+:host {
   background-color: var(--page-background-color);
+  height: 100%;
+  display: block;
 }
 
 .entry-list {

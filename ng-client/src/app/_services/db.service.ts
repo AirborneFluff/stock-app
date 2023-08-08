@@ -121,6 +121,7 @@ export class DataRepository<T extends BaseEntity> {
 
     if (data.id) return this.forage.setItem<BaseEntity>(data.id, data);
 
-    return this.forage.setItem<BaseEntity>(uuid(), data);
+    data.id = uuid();
+    return this.forage.setItem<BaseEntity>(data.id, data);
   }
 }
