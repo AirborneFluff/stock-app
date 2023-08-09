@@ -11,7 +11,7 @@
 <div class="page-container">
   <ul class="entry-list">
     <ng-container *ngFor="let item of parts">
-      <app-parts-list-item [part]="item"/>
+      <app-parts-list-item [part]="item" routerLink="/parts/{{item?.id}}"/>
     </ng-container>
   </ul>
 </div>

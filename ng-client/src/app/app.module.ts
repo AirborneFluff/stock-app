@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationModule } from "./navigation/navigation.module";
 import { PartsModule } from "./parts/parts.module";
 import { HeaderModule } from "./header/header.module";
-import {MatIconModule} from "@angular/material/icon";
 import {SettingsModule} from "./settings/settings.module";
 
 @NgModule({
@@ -21,7 +20,6 @@ import {SettingsModule} from "./settings/settings.module";
     PartsModule,
     SettingsModule,
     HeaderModule,
-    MatIconModule,
     NavigationModule
   ],
   bootstrap: [AppComponent]

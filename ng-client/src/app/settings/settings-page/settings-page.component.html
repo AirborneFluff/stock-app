@@ -1,3 +1,16 @@
-<app-page-header>
-  <app-header-title>Settings</app-header-title>
+<app-page-header backgroundColor="var(--page-background-color)" [borderless]="true">
+  <app-page-title>Settings</app-page-title>
+
+  <app-header-sub-content>
+    <app-search-bar [placeholder]="'Search settings'"/>
+  </app-header-sub-content>
 </app-page-header>
+
+<ul class="setting-list-container">
+  <li>
+    <button mat-button color="primary" (click)="seedDatabase()">Seed Data</button>
+  </li>
+  <li>
+    <button mat-button color="warn" (click)="clearStoredData()">Clear Stored Data</button>
+  </li>
+</ul>

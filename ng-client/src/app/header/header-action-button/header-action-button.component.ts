@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-header-action-button',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-action-button.component.scss']
 })
 export class HeaderActionButtonComponent {
+  @Input() svgSize: 'sm' | 'md' | 'lg' = 'md';
 
 }

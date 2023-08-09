@@ -1,0 +1,28 @@
+<div class="info-header">
+  <div class="info-container">
+    <span class="info-title">Stock level</span>
+    <span class="info-text">{{currentStockLevel == -1 ? '???' : currentStockLevel}}</span>
+  </div>
+
+  <div class="info-container">
+    <span class="info-title">Location</span>
+    <span class="info-text">{{part?.stockLocation == undefined ? '???' : part?.stockLocation}}</span>
+  </div>
+</div>
+
+<div class="page-content">
+
+  <ul class="stock-list">
+    <button class="add-button" mat-stroked-button (click)="openBottomSheet()">Update stock level</button>
+    <div class="stock-list-entry" *ngFor="let item of part?.stockLevels" (click)="openDeleteDialog(item)">
+      <div class="date-container">
+        <p class="subtitle">Date</p>
+        <p class="title">{{item?.date?.toDateString()}}</p>
+      </div>
+      <div class="stock-container">
+        <p class="subtitle">Stock</p>
+        <p class="title">{{item?.quantity}}</p>
+      </div>
+    </div>
+  </ul>
+</div>

@@ -1,0 +1,11 @@
+.page-wrapper {
+  height: 100%;
+  background-color: var(--page-background-color);
+}
+.mat-mdc-tab-group {
+  height: 100%;
+}
+::ng-deep .mat-mdc-tab-header {
+  background-color: var(--menu-background-color) !important;
+  border-bottom: 1px solid var(--divider-color);
+}

@@ -32,7 +32,11 @@ export class PartsListComponent implements OnInit {
       return;
     }
     this.db.parts.where(x => {
-      return x.description.toLowerCase().includes(term.toLowerCase());
+      const descriptionMatch = x.description.toLowerCase().includes(term.toLowerCase());
+      const skuMatch = x.sku.toLowerCase().includes(term.toLowerCase());
+      const locationMatch = x.stockLocation.toLowerCase().includes(term.toLowerCase());
+      const categoryMatch = x.category.toLowerCase().includes(term.toLowerCase());
+      return descriptionMatch || skuMatch || locationMatch || categoryMatch;
     }, 50).then(results => {
       this.parts = results;
     })

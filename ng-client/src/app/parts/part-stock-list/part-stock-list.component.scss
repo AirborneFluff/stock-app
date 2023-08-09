@@ -1,0 +1,103 @@
+.info-header {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--menu-background-color);
+  border-bottom: 1px solid var(--divider-color);
+}
+.stock-info-container span,
+.info-container span {
+  display: block;
+  line-height: 1;
+}
+.info-container {
+  text-align: center;
+  padding: 0.75rem 0 0.75rem 0;
+}
+.stock-info-title,
+.info-title {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+.info-text {
+  font-size: 2rem;
+  font-weight: 400;
+}
+.page-content {
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+button {
+  width: 100%;
+  height: 3rem !important;
+  background-color: var(--menu-background-color);
+  margin-bottom: 0.5rem;
+}
+
+
+
+// FROM PARTS LIST ITEM
+.stock-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.125rem;
+  padding: 0.5rem 0.25rem;
+}
+
+.stock-list-entry:hover {
+  cursor: pointer;
+}
+.stock-list-entry {
+  background-color: var(--menu-background-color);
+  display: flex;
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+  flex-basis: 300px;
+
+  box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  border: 1px solid var(--border-grey-color);
+}
+.date-container {
+  margin-right: auto;
+  min-width: 0;
+  overflow: clip; /* Hide overflowed text */
+}
+.subtitle {
+  font-size: 0.75em;
+  font-weight: 300;
+  line-height: 1;
+}
+.title {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowed text */
+  text-overflow: ellipsis; /* Display ellipsis for overflowed text */
+}
+p {
+  margin: 0;
+}
+svg {
+  stroke: var(--icon-grey-color);
+  flex-shrink: 0;
+}
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  height: 100%;
+  flex: 0 0 8.5rem;
+  padding-left: 0.5rem;
+}
+
+@media (min-width: 992px) { /* --bs-breakpoint-lg */
+  .stock-list-entry {
+    flex-basis: 30%;
+  }
+}

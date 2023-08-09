@@ -1,1 +1,3 @@
-<ng-content select="svg"/>
+<div class="svg-container" [ngClass]="{'sm' : svgSize == 'sm', 'md' : svgSize == 'md', 'lg' : svgSize == 'lg'}">
+  <ng-content select="svg"/>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <form [formGroup]="stockLevelForm">
+    <h2>Stock level</h2>
+    <div class="detail-container">
+      <mat-form-field>
+        <mat-label>Stock level</mat-label>
+        <input matInput formControlName="quantity" type="number">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-stroked-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="submit()" [disabled]="!stockLevelForm.valid">Create</button>
+  </div>
+</div>
+

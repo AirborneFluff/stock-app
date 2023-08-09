@@ -7,6 +7,8 @@ import {Part} from "../_data/part";
 import {Supplier} from "../_data/supplier";
 import {BaseEntity} from "../_data/base-entity";
 import {Observable} from "rxjs";
+import seedPartData from "../../assets/seed-data-parts.json";
+import {StockLevel} from "../_data/stock-level";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,36 @@ export class DbService {
     forage.name = this.dbName;
     this.parts = new DataRepository(forage, 'parts');
     this.suppliers = new DataRepository(forage, 'suppliers');
+  }
+
+  public useSeedData() {
+    return new Promise((resolve) => {
+      this.parts.clearData().then(() => {
+        let tasks: any = [];
+        seedPartData.forEach(part => {
+          let stockLevels: StockLevel[] = [];
+          part.stockLevels.forEach(val => {
+            stockLevels.push({
+              quantity: val.quantity,
+              date: new Date(val.date)})
+          })
+          const newPart: Part = {
+            category: part.category,
+            description: part.description,
+            id: part.id,
+            sku: part.sku,
+            stockLevels: stockLevels,
+            supplySources: [],
+            stockLocation: part.stockLocation
+          }
+          tasks.push(this.parts.add(newPart));
+        })
+
+        Promise.all(tasks).then(() => {
+          resolve(true);
+        });
+      });
+    })
   }
 
   public find(id: string) {
