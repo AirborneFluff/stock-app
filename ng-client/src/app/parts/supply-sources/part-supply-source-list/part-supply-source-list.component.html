@@ -1,0 +1,6 @@
+<p>part-supply-source-list works!</p>
+<ul>
+  <li *ngFor="let item of part?.supplySources">
+    <app-part-supply-source [part]="part" [supplySource]="item"/>
+  </li>
+</ul>

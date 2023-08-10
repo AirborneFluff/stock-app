@@ -13,6 +13,8 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatCardModule} from "@angular/material/card";
+import {MatChipsModule} from "@angular/material/chips";
 
 
 
@@ -32,7 +34,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatNativeDateModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule,
+    MatChipsModule
   ],
   exports: [
     CommonModule,
@@ -48,7 +52,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatNativeDateModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule,
+    MatChipsModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}

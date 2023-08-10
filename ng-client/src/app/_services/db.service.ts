@@ -8,6 +8,7 @@ import {Supplier} from "../_data/supplier";
 import {BaseEntity} from "../_data/base-entity";
 import {Observable} from "rxjs";
 import seedPartData from "../../assets/seed-data-parts.json";
+import seedSupplierData from "../../assets/seed-data-suppliers.json";
 import {StockLevel} from "../_data/stock-level";
 
 @Injectable({
@@ -28,6 +29,10 @@ export class DbService {
     return new Promise((resolve) => {
       this.parts.clearData().then(() => {
         let tasks: any = [];
+        seedSupplierData.forEach(supplier => {
+          tasks.push(this.suppliers.add(supplier));
+        })
+
         seedPartData.forEach(part => {
           let stockLevels: StockLevel[] = [];
           part.stockLevels.forEach(val => {
@@ -41,7 +46,7 @@ export class DbService {
             id: part.id,
             sku: part.sku,
             stockLevels: stockLevels,
-            supplySources: [],
+            supplySources: part.supplySources,
             stockLocation: part.stockLocation
           }
           tasks.push(this.parts.add(newPart));

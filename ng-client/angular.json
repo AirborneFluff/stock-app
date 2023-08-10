@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "/stock-app/",
             "outputPath": "dist/ng-client",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -105,6 +106,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

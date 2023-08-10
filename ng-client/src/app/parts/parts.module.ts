@@ -10,7 +10,10 @@ import { PartDetailComponent } from './part-detail/part-detail.component';
 import { PartStockListComponent } from './part-stock-list/part-stock-list.component';
 import { AddPartStockLevelComponent } from './add-part-stock-level/add-part-stock-level.component';
 import { SharedModule} from "../shared/shared.module";
-import { DialogModule } from "../dialog/dialog.module"
+import { DialogModule } from "../dialog/dialog.module";
+import { PartSupplySourceListComponent } from './supply-sources/part-supply-source-list/part-supply-source-list.component';
+import { PartSupplySourceComponent } from './supply-sources/part-supply-source/part-supply-source.component';
+import { AddSupplySourcePriceComponent } from './supply-sources/add-supply-source-price/add-supply-source-price.component'
 
 
 
@@ -21,7 +24,10 @@ import { DialogModule } from "../dialog/dialog.module"
     PartsListItemComponent,
     PartDetailComponent,
     PartStockListComponent,
-    AddPartStockLevelComponent
+    AddPartStockLevelComponent,
+    PartSupplySourceListComponent,
+    PartSupplySourceComponent,
+    AddSupplySourcePriceComponent
   ],
   imports: [
     CommonModule,

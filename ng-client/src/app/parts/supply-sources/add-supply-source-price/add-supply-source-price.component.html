@@ -1,0 +1,22 @@
+<div class="container">
+  <form [formGroup]="priceBreakForm">
+    <h2>Price break</h2>
+    <div class="detail-container">
+      <mat-form-field>
+        <mat-label>Unit cost</mat-label>
+        <input matInput formControlName="unitCost" type="number">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Minimum Quantity</mat-label>
+        <input matInput formControlName="quantity" type="number">
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-stroked-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="submit()" [disabled]="!priceBreakForm.valid">Create</button>
+  </div>
+</div>
+

@@ -1,0 +1,19 @@
+.container {
+  background-color: var(--menu-background-color);
+  padding-top: 1rem;
+}
+
+.detail-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+  button {
+    flex-basis: 8rem;
+  }
+}

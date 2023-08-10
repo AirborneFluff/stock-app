@@ -1,0 +1,47 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{supplier?.name}}</mat-card-title>
+      <mat-card-subtitle>SKU: {{supplySource.supplierSKU}}</mat-card-subtitle>
+      <mat-card-subtitle>Manufacturer SKU: {{supplySource.manufacturerSKU}}</mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-footer>
+    <mat-expansion-panel #pricePanel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Prices
+        </mat-panel-title>
+        <mat-panel-description *ngIf="!pricePanel.expanded">
+          <mat-chip-set class="header-chip-set">
+            <mat-chip *ngFor="let price of supplySource.prices"> <!--| slice:0:3"-->
+              {{price.quantity}}+ £{{price.unitCost}}
+            </mat-chip>
+          </mat-chip-set>
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+      <mat-chip-set>
+        <mat-chip *ngFor="let price of supplySource.prices"> <!--| slice:0:3"-->
+          {{price.quantity}}+ £{{price.unitCost}}
+        </mat-chip>
+
+        <mat-chip (click)="openAddPriceBottomSheet()">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </mat-chip>
+      </mat-chip-set>
+
+    </mat-expansion-panel>
+  </mat-card-footer>
+</mat-card>
+<br>
+
+<!--<p>{{supplySource.manufacturerSKU}}</p>-->
+<!--<p>{{supplier?.name}}</p>-->
+<!--<p>{{supplySource.supplierSKU}}</p>-->
+<!--<ng-container *ngFor="let price of supplySource.prices">-->
+<!--  <p>{{price.quantity}}</p>-->
+<!--  <p>£{{price.unitCost}}</p>-->
+<!--</ng-container>-->

@@ -1,0 +1,20 @@
+::ng-deep .header-chip-set .mdc-evolution-chip-set__chips {
+  flex-wrap: wrap !important;
+  overflow-y: hidden;
+  max-height: 40px;
+}
+
+mat-panel-description {
+  flex-grow: 4;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--icon-grey-color);
+  }
+}

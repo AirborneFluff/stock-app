@@ -2,10 +2,18 @@
   height: 100%;
   background-color: var(--page-background-color);
 }
-.mat-mdc-tab-group {
-  height: 100%;
-}
-::ng-deep .mat-mdc-tab-header {
+::ng-deep mat-tab-header {
   background-color: var(--menu-background-color) !important;
   border-bottom: 1px solid var(--divider-color);
+}
+
+
+@media (min-width: 992px) { /* --bs-breakpoint-lg */
+  ::ng-deep .mat-mdc-tab-label-container {
+    max-width: 400px;
+  }
+
+  ::ng-deep .mat-mdc-tab-labels div {
+    //border-right: 1px solid var(--divider-color);
+  }
 }

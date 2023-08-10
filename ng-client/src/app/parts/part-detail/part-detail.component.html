@@ -12,12 +12,16 @@
   </app-page-header>
 
   <div class="page-content">
-    <mat-tab-group>
+    <mat-tab-group selectedIndex="1">
       <mat-tab label="Stock">
         <ng-template matTabContent>
           <app-part-stock-list [part]="part"/>
         </ng-template></mat-tab>
-      <mat-tab label="Supply Sources"> Content 2 </mat-tab>
+      <mat-tab label="Supply Sources">
+        <ng-template matTabContent>
+          <app-part-supply-source-list [part]="part"/>
+        </ng-template>
+      </mat-tab>
       <mat-tab label="Orders"> Content 3 </mat-tab>
     </mat-tab-group>
   </div>
