@@ -1,0 +1,53 @@
+.container {
+  background-color: var(--menu-background-color);
+  padding-top: 1rem;
+}
+
+.detail-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+  button {
+    flex-basis: 8rem;
+  }
+}
+
+.form-input-group {
+  display: flex;
+  width: 100%;
+
+  ::ng-deep .mdc-notched-outline__trailing {
+    border-right: none !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  * {
+    flex-grow: 1;
+  }
+
+  .form-input-addon {
+    flex-grow: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
+    padding: 0 12px;
+    background-color: rgba(0,0,0,0.05);
+
+    border-top-right-radius: var(--mdc-shape-small, 4px);
+    border-bottom-right-radius: var(--mdc-shape-small, 4px);
+
+    border: 1px solid rgba(0, 0, 0, 0.38);
+  }
+
+  .form-input-addon:hover {
+    cursor: pointer;
+  }
+}

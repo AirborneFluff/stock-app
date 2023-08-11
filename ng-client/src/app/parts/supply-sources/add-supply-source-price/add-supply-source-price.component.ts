@@ -20,8 +20,8 @@ export class AddSupplySourcePriceComponent implements OnInit {
   }
   initForm() {
     this.priceBreakForm = new FormGroup({
-      unitCost: new FormControl(null, Validators.required),
-      quantity: new FormControl(1, Validators.required)
+      unitCost: new FormControl(null, [Validators.required, Validators.min(0)]),
+      quantity: new FormControl(1, [Validators.required, Validators.min(0)])
     })
   }
 

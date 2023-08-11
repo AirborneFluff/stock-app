@@ -5,11 +5,19 @@
       <mat-form-field>
         <mat-label>Unit cost</mat-label>
         <input matInput formControlName="unitCost" type="number">
+
+        <mat-error *ngIf="!priceBreakForm.controls['unitCost'].valid">
+          Please enter a valid number
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Minimum Quantity</mat-label>
         <input matInput formControlName="quantity" type="number">
+
+        <mat-error *ngIf="!priceBreakForm.controls['quantity'].valid">
+          Please enter a valid number
+        </mat-error>
       </mat-form-field>
     </div>
   </form>

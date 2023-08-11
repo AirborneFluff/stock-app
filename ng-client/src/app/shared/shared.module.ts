@@ -15,6 +15,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatCardModule} from "@angular/material/card";
 import {MatChipsModule} from "@angular/material/chips";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 
@@ -36,7 +37,8 @@ import {MatChipsModule} from "@angular/material/chips";
     MatDialogModule,
     MatSnackBarModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatAutocompleteModule,
   ],
   exports: [
     CommonModule,
@@ -54,7 +56,8 @@ import {MatChipsModule} from "@angular/material/chips";
     ReactiveFormsModule,
     MatSnackBarModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatAutocompleteModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}

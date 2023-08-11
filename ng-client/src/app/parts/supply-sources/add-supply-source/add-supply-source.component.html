@@ -1,0 +1,45 @@
+<div class="container">
+  <form [formGroup]="supplySourceForm">
+    <h2>Supply source</h2>
+    <div class="detail-container">
+      <div class="form-input-group">
+        <mat-form-field>
+          <mat-label>Supplier</mat-label>
+          <input type="text"
+                 placeholder="Supplier"
+                 matInput
+                 formControlName="supplier"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayWith">
+            <mat-option *ngFor="let supplier of suppliers$ | async" [value]="supplier">
+              {{supplier.name}}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error *ngIf="!supplySourceForm.controls['supplier'].valid">
+            Select a supplier, or add a new one
+          </mat-error>
+        </mat-form-field>
+
+        <div class="form-input-addon" (click)="openSupplierDialog()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+      </div>
+
+      <mat-form-field>
+        <mat-label>Supplier SKU</mat-label>
+        <input matInput formControlName="sku" type="text">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Manufacturer SKU</mat-label>
+        <input matInput formControlName="manufacturerSku" type="text">
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-stroked-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="submit()" [disabled]="!supplySourceForm.valid">Create</button>
+  </div>
+</div>
+

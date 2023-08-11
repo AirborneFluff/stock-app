@@ -25,11 +25,18 @@ export class PartSupplySourceComponent implements OnInit {
     return this._supplySource;
   }
 
+  get displayPriceMessage(): boolean {
+    if (!this._supplySource.prices) return true;
+    return this._supplySource.prices.length == 0;
+
+  }
+
   constructor(private db: DbService, private bottomSheet: MatBottomSheet) {
   }
 
   openAddPriceBottomSheet() {
     this.bottomSheet.open(AddSupplySourcePriceComponent).afterDismissed().subscribe(result => {
+      if (!result) return;
       this.supplySource.prices.push(result);
       this.updatePart();
     });

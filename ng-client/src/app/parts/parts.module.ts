@@ -13,7 +13,9 @@ import { SharedModule} from "../shared/shared.module";
 import { DialogModule } from "../dialog/dialog.module";
 import { PartSupplySourceListComponent } from './supply-sources/part-supply-source-list/part-supply-source-list.component';
 import { PartSupplySourceComponent } from './supply-sources/part-supply-source/part-supply-source.component';
-import { AddSupplySourcePriceComponent } from './supply-sources/add-supply-source-price/add-supply-source-price.component'
+import { AddSupplySourcePriceComponent } from './supply-sources/add-supply-source-price/add-supply-source-price.component';
+import { AddSupplySourceComponent } from './supply-sources/add-supply-source/add-supply-source.component';
+import { AddSupplierComponent } from './supply-sources/add-supplier/add-supplier.component'
 
 
 
@@ -27,7 +29,9 @@ import { AddSupplySourcePriceComponent } from './supply-sources/add-supply-sourc
     AddPartStockLevelComponent,
     PartSupplySourceListComponent,
     PartSupplySourceComponent,
-    AddSupplySourcePriceComponent
+    AddSupplySourcePriceComponent,
+    AddSupplySourceComponent,
+    AddSupplierComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,22 @@
+<div class="container">
+  <form [formGroup]="supplierForm">
+    <h2>Supplier</h2>
+    <div class="detail-container">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Website</mat-label>
+        <input matInput formControlName="website" type="text">
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-stroked-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="submit()" [disabled]="!supplierForm.valid">Create</button>
+  </div>
+</div>
+
