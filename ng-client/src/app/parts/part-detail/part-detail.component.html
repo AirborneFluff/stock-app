@@ -27,7 +27,7 @@
   </ng-template>
 
     <div class="page-content">
-      <mat-tab-group selectedIndex="1">
+      <mat-tab-group [(selectedIndex)]="tabIndex">
         <mat-tab label="Stock">
           <ng-template matTabContent>
             <app-part-stock-list [part]="part"/>

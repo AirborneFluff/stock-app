@@ -8,6 +8,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ConfirmDialogComponent} from "../../dialog/confirm-dialog/confirm-dialog.component";
 import {StockLevel} from "../../_data/stock-level";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {LoadingService} from "../../_services/loading.service";
 
 @Component({
   selector: 'app-part-stock-list',
@@ -17,7 +18,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class PartStockListComponent {
   private _part: Part | undefined = undefined;
 
-  constructor(private _bottomSheet: MatBottomSheet, private db: DbService, private dialog: MatDialog, private snackBar: MatSnackBar) {}
+  constructor(private _bottomSheet: MatBottomSheet, private db: DbService, private dialog: MatDialog, private snackBar: MatSnackBar, public loading: LoadingService) {}
 
   openBottomSheet(): void {
     this._bottomSheet.open(AddPartStockLevelComponent, { data: this.part }).afterDismissed().subscribe(x => {
