@@ -3,6 +3,7 @@ import {Part} from "../../../_data/part";
 import {DbService} from "../../../_services/db.service";
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {AddSupplySourceComponent} from "../add-supply-source/add-supply-source.component";
+import {LoadingService} from "../../../_services/loading.service";
 
 @Component({
   selector: 'app-part-supply-source-list',
@@ -13,7 +14,7 @@ export class PartSupplySourceListComponent implements OnInit {
   @Input() part: Part | undefined = undefined;
 
 
-  constructor(private db: DbService, private bottomSheet: MatBottomSheet) {
+  constructor(private db: DbService, private bottomSheet: MatBottomSheet, public loading: LoadingService) {
   }
 
   openAddSupplySourceBottomSheet() {
@@ -27,4 +28,6 @@ export class PartSupplySourceListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  protected readonly undefined = undefined;
 }

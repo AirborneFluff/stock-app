@@ -14,4 +14,14 @@
       <app-parts-list-item [part]="item" routerLink="/parts/{{item?.id}}"/>
     </ng-container>
   </ul>
+  <div class="fixed-paginator">
+    <mat-paginator hidePageSize="true"
+                   showFirstLastButtons="true"
+                   [length]="pagination.length"
+                   [pageSize]="pagination.pageSize"
+                   [pageSizeOptions]="[10, 25, 50]"
+                   (page)="handlePageEvent($event)"
+                   aria-label="Select page">
+    </mat-paginator>
+  </div>
 </div>

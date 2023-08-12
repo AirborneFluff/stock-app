@@ -2,5 +2,12 @@
   <app-navigation/>
   <div class="wrapper">
     <router-outlet/>
+    <ng-container *ngIf="loading.loading$ | async">
+
+      <div class="loading-spinner-backdrop"></div>
+      <div class="loading-spinner-container">
+        <mat-progress-spinner diameter="60" mode="indeterminate"/>
+      </div>
+    </ng-container>
   </div>
 </div>

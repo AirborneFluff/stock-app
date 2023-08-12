@@ -2,6 +2,8 @@ import {BaseEntity} from "../../_data/base-entity";
 import {NgForage} from "ngforage";
 // @ts-ignore
 import { v4 as uuid } from 'uuid';
+import {PaginatedList} from "../../_models/paginated-list";
+import {PaginationParams} from "../../_models/pagination-params";
 
 export abstract class DataRepository<T extends BaseEntity> {
   public readonly storeName!: string;
@@ -16,6 +18,21 @@ export abstract class DataRepository<T extends BaseEntity> {
     this.setStore();
 
     return this.forage.clear();
+  }
+
+  public getPaginatedList(predicate: (value: T) => boolean, params: PaginationParams): Promise<PaginatedList<T>> { //: PaginatedList<T> {
+    return new Promise<PaginatedList<T>>((resolve, reject) => {
+      this.takeWhere(predicate, params.pageSize, params.pageSize * params.pageIndex)
+        .then(result => {
+          params.length = result.count;
+          resolve({
+            items: result.items,
+            params: params
+          });
+      }).catch(() => {
+        reject();
+      })
+    });
   }
 
   public remove(key: string) {
@@ -46,6 +63,33 @@ export abstract class DataRepository<T extends BaseEntity> {
       return undefined;
     });
   }
+
+  public takeWhere(predicate: (value: T) => boolean, amount: number, skip: number): Promise<{items: T[], count: number}> {
+    this.setStore();
+
+    return new Promise<{items: T[], count: number}>((resolve, reject) => {
+      let items: T[] = [];
+
+      this.forage.iterate((data: T, key: string, iterationNumber: number) => {
+        if (predicate(data)) { // Add all that match predicate
+          items.push(data);
+        }
+        return undefined;
+      }).then(() => {
+        const totalItems = items.length;
+        items.splice(0, skip); // Remove skip amount
+        items.splice(amount); // Remove additional
+
+        resolve({
+          items: items,
+          count: totalItems
+        });
+      }).catch(() => {
+        reject();
+      })
+    });
+  }
+
   public where(predicate: (value: T) => boolean, maximumResults: number = -1) {
     this.setStore();
 

@@ -15,7 +15,8 @@ import { PartSupplySourceListComponent } from './supply-sources/part-supply-sour
 import { PartSupplySourceComponent } from './supply-sources/part-supply-source/part-supply-source.component';
 import { AddSupplySourcePriceComponent } from './supply-sources/add-supply-source-price/add-supply-source-price.component';
 import { AddSupplySourceComponent } from './supply-sources/add-supply-source/add-supply-source.component';
-import { AddSupplierComponent } from './supply-sources/add-supplier/add-supplier.component'
+import { AddSupplierComponent } from './supply-sources/add-supplier/add-supplier.component';
+import { SupplySourcePlaceholderComponent } from './supply-sources/supply-source-placeholder/supply-source-placeholder.component'
 
 
 
@@ -31,7 +32,8 @@ import { AddSupplierComponent } from './supply-sources/add-supplier/add-supplier
     PartSupplySourceComponent,
     AddSupplySourcePriceComponent,
     AddSupplySourceComponent,
-    AddSupplierComponent
+    AddSupplierComponent,
+    SupplySourcePlaceholderComponent
   ],
   imports: [
     CommonModule,

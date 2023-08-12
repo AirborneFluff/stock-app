@@ -1,8 +1,22 @@
 <ul class="source-list">
-  <li class="list-item" *ngFor="let item of part?.supplySources">
-    <app-part-supply-source [part]="part" [supplySource]="item"/>
-  </li>
-  <li>
-    <button class="add-button" mat-stroked-button (click)="openAddSupplySourceBottomSheet()">Add supply source</button>
-  </li>
+  <ng-container *ngIf="loading.loading$ | async; else loadedContent">
+    <li class="list-item">
+      <app-supply-source-placeholder/>
+    </li>
+    <li class="list-item">
+      <app-supply-source-placeholder/>
+    </li>
+    <li class="list-item">
+      <app-supply-source-placeholder/>
+    </li>
+  </ng-container>
+
+  <ng-template #loadedContent>
+    <li class="list-item" *ngFor="let item of part?.supplySources">
+      <app-part-supply-source [part]="part" [supplySource]="item"/>
+    </li>
+    <li>
+      <button class="add-button" mat-stroked-button (click)="openAddSupplySourceBottomSheet()">Add supply source</button>
+    </li>
+  </ng-template>
 </ul>

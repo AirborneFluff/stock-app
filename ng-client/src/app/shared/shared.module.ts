@@ -16,6 +16,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatCardModule} from "@angular/material/card";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+
 
 
 
@@ -39,6 +42,8 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     MatCardModule,
     MatChipsModule,
     MatAutocompleteModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     CommonModule,
@@ -57,7 +62,9 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     MatSnackBarModule,
     MatCardModule,
     MatChipsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}

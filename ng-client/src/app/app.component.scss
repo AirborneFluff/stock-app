@@ -8,11 +8,33 @@
   width: 100%;
   height: 100%;
   overflow-y: auto;
+  position: relative;
 }
 
 * {
   overflow: hidden;
 }
+
+.loading-spinner-backdrop {
+  z-index: 1000;
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.loading-spinner-container {
+  z-index: 1001;
+  position: fixed;
+  top: calc(50% - 90px);
+  left: calc(50% - 30px);
+}
+
 
 @media (min-width: 992px) { /* --bs-breakpoint-lg */
   .app-container {

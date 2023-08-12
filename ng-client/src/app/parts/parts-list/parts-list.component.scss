@@ -1,12 +1,21 @@
 :host {
-  background-color: var(--page-background-color);
-  height: 100%;
+  min-height: 100%;
   display: block;
+  position: relative;
 }
 
 .entry-list {
+  background-color: var(--page-background-color);
   display: flex;
   flex-wrap: wrap;
   gap: 0.125rem;
   padding: 0.5rem 0.25rem;
+}
+
+.fixed-paginator {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid var(--divider-color);
+  border-bottom: 1px solid var(--divider-color);
 }

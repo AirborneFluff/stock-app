@@ -22,3 +22,30 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.placeholder-1,
+.placeholder-2,
+.placeholder-3,
+.placeholder-4,
+.placeholder-5 {
+  color: rgba(0,0,0,0) !important;
+  background-color: rgba(0,0,0,0.15) !important;
+  transform: scaleY(0.75) !important;
+  border-radius: 2px !important;
+}
+
+.placeholder-1 {
+  width: 3rem !important;
+}
+.placeholder-2 {
+  width: 6rem !important;
+}
+.placeholder-3 {
+  width: 9rem !important;
+}
+.placeholder-4 {
+  width: 12rem !important;
+}
+.placeholder-5 {
+  width: 15rem !important;
+}
