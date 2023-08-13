@@ -1,4 +1,4 @@
-import {AfterContentInit, AfterViewInit, Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {AddNewPartComponent} from "../add-new-part/add-new-part.component";
 import {DbService} from "../../_services/db.service";
@@ -6,8 +6,6 @@ import {Part} from "../../_data/part";
 import {PaginationParams} from "../../_models/pagination-params";
 import {PageEvent} from "@angular/material/paginator";
 import {LoadingService} from "../../_services/loading.service";
-import {MatHeaderRow} from "@angular/material/table";
-import {StockLevel} from "../../_data/stock-level";
 
 @Component({
   selector: 'app-parts-list',
@@ -27,13 +25,8 @@ export class PartsListComponent implements OnInit {
     this._bottomSheet.open(AddNewPartComponent).afterDismissed().subscribe(x => {
       if (!x) return;
       this.parts.push(x);
+      this.updatePartsList();
     });
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    const cells = document.getElementsByClassName('mat-mdc-cell');
-
   }
 
   public getStockLevel(part: Part): { quantity: string, date: string } {
