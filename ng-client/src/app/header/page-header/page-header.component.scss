@@ -1,9 +1,9 @@
 :host {
   background-color: var(--menu-background-color);
+  position: sticky;
 }
 
 .header-container {
-  position: sticky;
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: 36px;

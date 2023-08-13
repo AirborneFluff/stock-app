@@ -1,9 +1,9 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MAT_BOTTOM_SHEET_DATA, MatBottomSheet} from "@angular/material/bottom-sheet";
-import {DbService} from "../../_services/db.service";
-import {Part} from "../../_data/part";
-import {StockLevel} from "../../_data/stock-level";
+import {DbService} from "../../../_services/db.service";
+import {Part} from "../../../_data/part";
+import {StockLevel} from "../../../_data/stock-level";
 
 @Component({
   selector: 'app-add-part-stock-level',

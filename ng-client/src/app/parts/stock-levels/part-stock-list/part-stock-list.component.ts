@@ -1,14 +1,14 @@
 import {Component, Input} from '@angular/core';
-import {Part} from "../../_data/part";
+import {Part} from "../../../_data/part";
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
-import {DbService} from "../../_services/db.service";
-import {AddNewPartComponent} from "../add-new-part/add-new-part.component";
+import {DbService} from "../../../_services/db.service";
+import {AddNewPartComponent} from "../../add-new-part/add-new-part.component";
 import {AddPartStockLevelComponent} from "../add-part-stock-level/add-part-stock-level.component";
 import {MatDialog} from "@angular/material/dialog";
-import {ConfirmDialogComponent} from "../../dialog/confirm-dialog/confirm-dialog.component";
-import {StockLevel} from "../../_data/stock-level";
+import {ConfirmDialogComponent} from "../../../dialog/confirm-dialog/confirm-dialog.component";
+import {StockLevel} from "../../../_data/stock-level";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {LoadingService} from "../../_services/loading.service";
+import {LoadingService} from "../../../_services/loading.service";
 
 @Component({
   selector: 'app-part-stock-list',

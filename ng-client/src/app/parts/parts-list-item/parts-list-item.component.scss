@@ -6,17 +6,24 @@
   display: flex;
   padding: 0.5rem 1rem;
   align-items: center;
-  justify-content: flex-end;
-  flex-grow: 1;
-  flex-basis: 300px;
+  justify-content: space-between;
+  max-width: 768px;
 
   box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 6px;
 }
 .title-container {
-  margin-right: auto;
   min-width: 0;
   overflow: clip; /* Hide overflowed text */
+  flex: 0 1 100px;
+}
+.extra-container {
+  overflow: auto; /* Hide overflowed text */
+  min-width: 0;
+  flex: 0 1000 5rem;
+  .subtitle {
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
 }
 .subtitle {
   font-size: 0.75em;
@@ -45,12 +52,15 @@ svg {
   align-items: flex-start;
 
   height: 100%;
-  flex: 0 0 8.5rem;
-  padding-left: 0.5rem;
-}
+  flex-shrink: 1;
+  padding: 0 0.5rem;
 
-@media (min-width: 992px) { /* --bs-breakpoint-lg */
-  :host {
-    flex-basis: 30%;
+  .subtitle {
+    white-space: nowrap;
+    overflow: visible;
+  }
+  .title {
+    white-space: nowrap;
+    overflow: visible;
   }
 }

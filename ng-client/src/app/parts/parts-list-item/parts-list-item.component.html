@@ -2,6 +2,12 @@
   <p class="subtitle">{{part?.category}}</p>
   <p class="title">{{part?.description}}</p>
 </div>
+<div class="extra-container" #extraContainer [ngStyle]="{'display': hideExtras ? 'none' : 'block' }">
+  <ng-container *ngIf="part?.stockLevels">
+    <p class="subtitle">Current stock</p>
+    <p class="title">{{stockLevel}}</p>
+  </ng-container>
+</div>
 <div class="detail-container">
   <p class="subtitle" *ngIf="part?.sku">sku: {{part?.sku}}</p>
   <p class="subtitle" *ngIf="part?.stockLocation">location: {{part?.stockLocation}}</p>

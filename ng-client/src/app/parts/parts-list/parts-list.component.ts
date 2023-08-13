@@ -13,6 +13,7 @@ import {LoadingService} from "../../_services/loading.service";
   styleUrls: ['./parts-list.component.scss']
 })
 export class PartsListComponent implements OnInit {
+  hideExtraDetails: boolean = false;
   parts: Part[] = [];
   pagination: PaginationParams = {
     length: 0, pageIndex: 0, pageSize: 25, previousPageIndex: 0
@@ -32,7 +33,6 @@ export class PartsListComponent implements OnInit {
   }
 
   searchParts(term: string) {
-    console.log('update')
     if (term.length >= 3) {
       this.searchTerm = term;
     }
@@ -45,12 +45,11 @@ export class PartsListComponent implements OnInit {
   updatePartsList() {
     let predicate = undefined;
     if (this.searchTerm) {
-      console.log('searching')
       predicate = (x: Part) => {
-        const descriptionMatch = x.description.toLowerCase().includes(this.searchTerm.toLowerCase());
-        const skuMatch = x.sku.toLowerCase().includes(this.searchTerm.toLowerCase());
-        const locationMatch = x.stockLocation.toLowerCase().includes(this.searchTerm.toLowerCase());
-        const categoryMatch = x.category.toLowerCase().includes(this.searchTerm.toLowerCase());
+        const descriptionMatch = x.description?.toLowerCase().includes(this.searchTerm.toLowerCase());
+        const skuMatch = x.sku?.toLowerCase().includes(this.searchTerm.toLowerCase());
+        const locationMatch = x.stockLocation?.toLowerCase().includes(this.searchTerm.toLowerCase());
+        const categoryMatch = x.category?.toLowerCase().includes(this.searchTerm.toLowerCase());
         return descriptionMatch || skuMatch || locationMatch || categoryMatch;
       }
     }
@@ -58,6 +57,7 @@ export class PartsListComponent implements OnInit {
     this.loading.start();
     this.db.parts.getPaginatedList(predicate, this.pagination).then(result => {
       this.parts = result.items;
+    }).finally(() => {
       this.loading.stop();
     })
   }
@@ -67,5 +67,9 @@ export class PartsListComponent implements OnInit {
     this.pagination.pageSize = e.pageSize;
     this.pagination.pageIndex = e.pageIndex;
     this.updatePartsList();
+  }
+
+  handleHideExtras(event: boolean) {
+    this.hideExtraDetails = event;
   }
 }

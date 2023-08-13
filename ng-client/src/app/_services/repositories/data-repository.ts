@@ -71,8 +71,13 @@ export abstract class DataRepository<T extends BaseEntity> {
       let items: T[] = [];
 
       this.forage.iterate((data: T, key: string, iterationNumber: number) => {
-        if (predicate(data)) { // Add all that match predicate
-          items.push(data);
+        try {
+          if (predicate(data)) { // Add all that match predicate
+            items.push(data);
+          }
+        }
+        catch (e) {
+          return undefined;
         }
         return undefined;
       }).then(() => {
