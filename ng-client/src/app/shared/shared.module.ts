@@ -18,6 +18,7 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatTableModule} from "@angular/material/table";
 
 
 
@@ -43,7 +44,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatChipsModule,
     MatAutocompleteModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule
   ],
   exports: [
     CommonModule,
@@ -64,7 +66,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatChipsModule,
     MatAutocompleteModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}

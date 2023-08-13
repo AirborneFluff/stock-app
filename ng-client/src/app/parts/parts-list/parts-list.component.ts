@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {AddNewPartComponent} from "../add-new-part/add-new-part.component";
 import {DbService} from "../../_services/db.service";
@@ -6,6 +6,8 @@ import {Part} from "../../_data/part";
 import {PaginationParams} from "../../_models/pagination-params";
 import {PageEvent} from "@angular/material/paginator";
 import {LoadingService} from "../../_services/loading.service";
+import {MatHeaderRow} from "@angular/material/table";
+import {StockLevel} from "../../_data/stock-level";
 
 @Component({
   selector: 'app-parts-list',
@@ -13,7 +15,7 @@ import {LoadingService} from "../../_services/loading.service";
   styleUrls: ['./parts-list.component.scss']
 })
 export class PartsListComponent implements OnInit {
-  hideExtraDetails: boolean = false;
+  displayedColumns: string[] = ['sku', 'categoryDescription', 'location', 'stockLevel'];
   parts: Part[] = [];
   pagination: PaginationParams = {
     length: 0, pageIndex: 0, pageSize: 25, previousPageIndex: 0
@@ -26,6 +28,30 @@ export class PartsListComponent implements OnInit {
       if (!x) return;
       this.parts.push(x);
     });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    const cells = document.getElementsByClassName('mat-mdc-cell');
+
+  }
+
+  public getStockLevel(part: Part): { quantity: string, date: string } {
+    const blank = {
+      quantity: 'Unknown',
+      date: ''
+    };
+
+    if (!part) return blank;
+    if (!part.stockLevels.length) return blank;
+
+    part.stockLevels.sort((a, b) => {
+      return b.date.getTime() - a.date.getTime();
+    })
+    return {
+      quantity: part.stockLevels[0].quantity.toString(),
+      date: part.stockLevels[0].date.toLocaleDateString()
+    };
   }
 
   ngOnInit(): void {
@@ -67,9 +93,5 @@ export class PartsListComponent implements OnInit {
     this.pagination.pageSize = e.pageSize;
     this.pagination.pageIndex = e.pageIndex;
     this.updatePartsList();
-  }
-
-  handleHideExtras(event: boolean) {
-    this.hideExtraDetails = event;
   }
 }

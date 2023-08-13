@@ -17,4 +17,41 @@
   bottom: 0;
   border-top: 1px solid var(--divider-color);
   border-bottom: 1px solid var(--divider-color);
+  ::ng-deep .mat-mdc-paginator-range-label {
+    margin: 0;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+.subtitle {
+  font-size: 0.75em;
+  font-weight: 300;
+  line-height: 1;
+  margin: 0;
+}
+.title {
+  max-height: calc(2rem - 4px);
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+}
+::ng-deep .mdc-data-table__content {
+  tr {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 576px) {
+  tr {
+    td:nth-child(3),
+    th:nth-child(3),
+    td:nth-child(4),
+    th:nth-child(4) {
+      display: none;
+    }
+  }
 }
