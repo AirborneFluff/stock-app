@@ -29,7 +29,7 @@
 }
 .page-content {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   padding: 6px;
 }
 button {
@@ -41,12 +41,9 @@ button {
 
 
 
-// FROM PARTS LIST ITEM
 .stock-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.125rem;
   padding: 0.5rem 0.25rem;
+  flex-basis: 992px;
 }
 
 .stock-list-entry:hover {
@@ -59,7 +56,7 @@ button {
   align-items: center;
   justify-content: flex-end;
   flex-grow: 1;
-  flex-basis: 300px;
+  margin-bottom: 0.125rem;
 
   box-shadow: 1px 4px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 6px;
@@ -99,10 +96,4 @@ svg {
   height: 100%;
   flex: 0 0 8.5rem;
   padding-left: 0.5rem;
-}
-
-@media (min-width: 992px) { /* --bs-breakpoint-lg */
-  .stock-list-entry {
-    flex-basis: 30%;
-  }
 }

@@ -46,7 +46,7 @@
       <div class="stock-list-entry" *ngFor="let item of part?.stockLevels" (click)="openDeleteDialog(item)">
         <div class="date-container">
           <p class="subtitle">Date</p>
-          <p class="title">{{item?.date?.toDateString()}}</p>
+          <p class="title">{{item?.date?.toLocaleDateString()}}</p>
         </div>
         <div class="stock-container">
           <p class="subtitle">Stock</p>
