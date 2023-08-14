@@ -1,0 +1,32 @@
+<div class="container">
+  <form [formGroup]="partForm">
+    <h2>Part details</h2>
+    <div class="detail-container">
+      <mat-form-field>
+        <mat-label>SKU</mat-label>
+        <input matInput formControlName="sku">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <input matInput formControlName="category">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Stock Location</mat-label>
+        <input matInput formControlName="stockLocation">
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-stroked-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="submit()" [disabled]="!partForm.valid">Update</button>
+  </div>
+</div>
+
