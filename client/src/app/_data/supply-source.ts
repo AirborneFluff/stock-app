@@ -1,9 +1,9 @@
 import {BaseEntity} from "./base-entity";
+import {PriceBreak} from "./price-break";
 
-export interface SupplySource extends BaseEntity {
-  id: string,
+export interface SupplySource {
   supplierId: string,
   supplierSKU: string,
   manufacturerSKU: string,
-  prices: [value: number, minimumQuantity: number];
+  prices: PriceBreak[];
 }

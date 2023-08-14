@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {PartsListComponent} from "./components/parts/parts-list/parts-list.component";
-import {PartDetailComponent} from "./components/parts/part-detail/part-detail.component";
+import { AppComponent } from "./app.component";
+import { PartsListComponent } from "./parts/parts-list/parts-list.component";
+import {SettingsPageComponent} from "./settings/settings-page/settings-page.component";
+import {PartDetailComponent} from "./parts/part-detail/part-detail.component";
 
 const routes: Routes = [
-  { path: '', component: PartsListComponent },
-  { path: 'parts', component: PartsListComponent },
-  { path: 'parts/:partId', component: PartDetailComponent }
+  { path: '', redirectTo: 'parts', pathMatch: 'full' },
+  { path: 'parts', component: PartsListComponent  },
+  { path: 'parts/:partId', component: PartDetailComponent  },
+  { path: 'settings', component: SettingsPageComponent  },
 ];
 
 @NgModule({
