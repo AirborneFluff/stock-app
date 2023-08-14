@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Part} from "../../_data/part";
 import {ActivatedRoute} from "@angular/router";
 import {DbService} from "../../_services/db.service";
@@ -10,44 +10,33 @@ import {PageStateService} from "../../_services/page-state.service";
   templateUrl: './part-detail.component.html',
   styleUrls: ['./part-detail.component.scss']
 })
-export class PartDetailComponent {
+export class PartDetailComponent implements OnInit, OnDestroy{
   readonly _pageStateOwner: string = 'parts-detail-component';
-  partExists: boolean = true;
   part!: Part;
-  _tabIndex: number = 0;
-
-  set tabIndex(val: number) {
-    this.pageState.storeProperty(this._pageStateOwner,'tabIndex', val);
-    this._tabIndex = val;
-  }
-
-  get tabIndex(){
-    return this._tabIndex;
-  }
+  tabIndex: number = 0;
 
   constructor(private route: ActivatedRoute, public db: DbService, public loading: LoadingService, private pageState: PageStateService){}
 
   ngOnInit(): void {
-    this._tabIndex = this.pageState.retreiveProperty(this._pageStateOwner, 'tabIndex');
+    const tabIndex = this.pageState.retreiveProperty(this._pageStateOwner, 'tabIndex');
+    if (tabIndex) this.tabIndex = tabIndex;
     this.loading.start();
-    this.getPart()?.then(result => {
-      if (!result) {
-        return;
-      }
-      this.part = result;
-    }).catch(err => {
-      this.partExists = false;
-    }).finally(() => {
+    setTimeout(() => this.getPart())
+  }
 
-      this.loading.stop();
-    })
+  ngOnDestroy(): void {
+    this.pageState.storeProperty(this._pageStateOwner,'tabIndex', this.tabIndex);
   }
 
   getPart() {
     const urlParam = this.route.snapshot.paramMap.get("partId");
     if (!urlParam) return;
 
-    return this.db.parts.find(urlParam);
+    this.db.parts.find(urlParam).then(result => {
+      if (!result) return;
+      this.part = result;
+    }).finally(() => {
+      this.loading.stop();
+    })
   }
-
 }

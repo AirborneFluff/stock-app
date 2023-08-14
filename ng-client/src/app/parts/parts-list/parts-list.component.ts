@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {AddNewPartComponent} from "../add-new-part/add-new-part.component";
 import {DbService} from "../../_services/db.service";
@@ -6,21 +6,31 @@ import {Part} from "../../_data/part";
 import {PaginationParams} from "../../_models/pagination-params";
 import {PageEvent} from "@angular/material/paginator";
 import {LoadingService} from "../../_services/loading.service";
+import {PageStateService} from "../../_services/page-state.service";
 
 @Component({
   selector: 'app-parts-list',
   templateUrl: './parts-list.component.html',
   styleUrls: ['./parts-list.component.scss']
 })
-export class PartsListComponent implements OnInit {
+export class PartsListComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['sku', 'categoryDescription', 'location', 'stockLevel'];
   parts: Part[] = [];
   pagination: PaginationParams = {
     length: 0, pageIndex: 0, pageSize: 25, previousPageIndex: 0
   }
   searchTerm: string = '';
-  constructor(private _bottomSheet: MatBottomSheet, private db: DbService, private loading: LoadingService) {}
+  constructor(private _bottomSheet: MatBottomSheet, private db: DbService, private loading: LoadingService, private pageState: PageStateService) {}
 
+  ngOnInit(): void {
+    const pagination = this.pageState.retreiveProperty('parts-list-component', 'pagination')
+    if (pagination) this.pagination = pagination;
+    setTimeout(() => this.updatePartsList())
+  }
+
+  ngOnDestroy(): void {
+    this.pageState.storeProperty('parts-list-component', 'pagination', this.pagination)
+  }
   openBottomSheet(): void {
     this._bottomSheet.open(AddNewPartComponent).afterDismissed().subscribe(x => {
       if (!x) return;
@@ -47,9 +57,6 @@ export class PartsListComponent implements OnInit {
     };
   }
 
-  ngOnInit(): void {
-    this.updatePartsList();
-  }
 
   searchParts(term: string) {
     if (term.length >= 3) {

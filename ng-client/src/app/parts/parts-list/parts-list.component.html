@@ -13,7 +13,7 @@
     <ng-container matColumnDef="categoryDescription">
       <th mat-header-cell *matHeaderCellDef>Part</th>
       <td mat-cell *matCellDef="let element">
-        <p class="subtitle">{{element?.category}}</p>
+        <p class="subtitle">{{element?.category.toLowerCase()}}</p>
         <p class="title">{{element?.description}}</p>
       </td>
     </ng-container>
@@ -29,6 +29,7 @@
     <ng-container matColumnDef="location">
       <th mat-header-cell *matHeaderCellDef>Stock Location</th>
       <td mat-cell *matCellDef="let element">
+        <p class="subtitle">location</p>
         <p class="title">{{element?.stockLocation}}</p>
       </td>
     </ng-container>
@@ -36,11 +37,12 @@
     <ng-container matColumnDef="sku">
       <th mat-header-cell *matHeaderCellDef>SKU</th>
       <td mat-cell *matCellDef="let element">
+        <p class="subtitle">sku</p>
         <p class="title">{{element.sku}}</p>
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<!--    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/parts/{{row?.id}}"></tr>
   </table>
 <!--  <ul class="entry-list">-->
@@ -50,6 +52,7 @@
 <!--  </ul>-->
   <div class="fixed-paginator">
     <mat-paginator hidePageSize="true"
+                   [pageIndex]="pagination.pageIndex"
                    [length]="pagination.length"
                    [pageSize]="pagination.pageSize"
                    [pageSizeOptions]="[10, 25, 50]"
